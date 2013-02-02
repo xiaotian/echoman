@@ -45,4 +45,14 @@ class EchomanApp < Sinatra::Base
   get_or_post '/array/*' do
     params[:splat].first.split('/').to_json
   end
+
+  get_or_post '/gist/:gist_id' do
+    begin
+      gist = RestClient.get("https://raw.github.com/gist/#{params[:gist_id]}")
+      gist
+    rescue => e
+      status '500'
+      {error: "unable to retrieve gist #{params[:gist_id]}"}.to_json
+    end
+  end
 end

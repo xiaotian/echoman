@@ -1,11 +1,14 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    mime-types (1.19)
     rack (1.5.1)
     rack-cors (0.2.7)
       rack
     rack-protection (1.3.2)
       rack
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     sinatra (1.3.4)
       rack (~> 1.4)
       rack-protection (~> 1.3)
@@ -17,4 +20,5 @@ PLATFORMS
 
 DEPENDENCIES
   rack-cors
+  rest-client
   sinatra
