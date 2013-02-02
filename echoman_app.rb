@@ -1,9 +1,17 @@
 require 'json'
 
+
 class EchomanApp < Sinatra::Base
   def self.get_or_post(path, opts={}, &block)
     get(path, opts, &block)
     post(path, opts, &block)
+  end
+
+  use Rack::Cors do
+    allow do
+      origins '*'
+      resource '*', headers: :any, methods: [:get, :post]
+    end
   end
 
   before do
