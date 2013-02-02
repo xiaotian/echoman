@@ -30,7 +30,7 @@ class EchomanApp < Sinatra::Base
 
   get_or_post '/object/*' do
     key_vals = params[:splat].first.split('/')
-    key_vals << nil if key_vals.size%2
+    key_vals << nil if (key_vals.size%2) != 0
     Hash[*key_vals.flatten].to_json
   end
 
