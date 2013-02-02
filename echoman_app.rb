@@ -23,7 +23,7 @@ class EchomanApp < Sinatra::Base
       params[:json]
     else
       status '400'
-      {error: '"json" param not found'}
+      {error: '"json" param not found'}.to_json
     end
   end
 
